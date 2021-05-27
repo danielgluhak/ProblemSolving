@@ -34,7 +34,7 @@ public class Array {
             System.out.println("Sorted ascending: \n" + array[i]);
         }
     }
-    public void sortArrayDesc() {
+    public Integer[] sortArrayDesc() {
 //        implementing autoboxing and unboxing
         System.out.println("Enter desired size of an array: ");
         int x = scanner.nextInt();
@@ -47,8 +47,30 @@ public class Array {
         }
 
         java.util.Arrays.sort(array, Collections.reverseOrder());
-        System.out.println(java.util.Arrays.toString(array));
+//        System.out.println(java.util.Arrays.toString(array));
+        return array;
     }
+    public int[] sortArrDesc(int[] array) {
+        int[] sortedArr = new int[array.length];
+        int start=0;
+        for (int i=0; i<array.length; i++) {
+            sortedArr[i]=array[i];
+        }
+        boolean flag = true;
+        while (flag) {
+            flag=false;
+            for(int i=0; i<sortedArr.length-1; i++) {
+                if(sortedArr[i]<sortedArr[i+1]) {
+                    start=sortedArr[i];
+                    sortedArr[i] = sortedArr[i+1];
+                    sortedArr[i+1]=start;
+                }
+            }
+        }
+        return sortedArr;
+
+    }
+
 }
 
 
